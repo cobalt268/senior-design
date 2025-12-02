@@ -10,8 +10,8 @@
 
 void encoder_setup_hal(void);
 
-uint64_t left_encoder_counts_hal(void);
+uint32_t left_encoder_counts_hal(void);
 
-uint64_t right_encoder_counts_hal(void);
+uint32_t right_encoder_counts_hal(void);
 
 #endif

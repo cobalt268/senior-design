@@ -1,6 +1,8 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
+#include <stdint.h>
+
 void setup_motor(void);
 
 void set_speed_left(float);
@@ -15,7 +17,7 @@ void left_set_backward(void);
 void right_stop(void);
 void left_stop(void);
 
-uint64_t get_left_encoder_count(void);
-uint64_t get_right_encoder_count(void);
+uint32_t get_left_encoder_count(void);
+uint32_t get_right_encoder_count(void);
 
 #endif

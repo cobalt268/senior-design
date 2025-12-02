@@ -37,10 +37,10 @@ void left_stop(void){
     left_motor_stop_hal();
 };
 
-uint64_t get_left_encoder_count(void){
+uint32_t get_left_encoder_count(void){
     return left_encoder_counts_hal();
 }
 
-uint64_t get_right_encoder_count(void){
+uint32_t get_right_encoder_count(void){
     return right_encoder_counts_hal();
 }

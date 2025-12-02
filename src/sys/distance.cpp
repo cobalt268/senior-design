@@ -1,13 +1,14 @@
 #include "../hal/distance_sensor_hal.h"
 
-/// @brief
+/// @brief configures distance sensors and relevant pins, boots sensors
 /// @param
 void setup_distance(void)
 {
     setup_dist_sensor();
 }
 
-/// @brief
+/// @brief refreshes distance measurements. will be removed once interrupt-based sensing is implemented
+/// @deprecated to be removed once interrupt-based sensing is completed
 /// @param
 void distance_refresh(void)
 {
@@ -16,7 +17,7 @@ void distance_refresh(void)
 
 /// @brief
 /// @param
-/// @return
+/// @return right sensor measurement in mm
 uint16_t rightDistance(void)
 {
     return getRight();
@@ -24,7 +25,7 @@ uint16_t rightDistance(void)
 
 /// @brief
 /// @param
-/// @return
+/// @return left sensor measurement in mm
 uint16_t leftDistance(void)
 {
     return getLeft();
@@ -32,7 +33,7 @@ uint16_t leftDistance(void)
 
 /// @brief
 /// @param
-/// @return
+/// @return forward sensor measurement in mm
 uint16_t forwardDistance(void)
 {
     return getForward();

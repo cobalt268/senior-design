@@ -10,10 +10,10 @@ Adafruit_VL53L0X lox_right = Adafruit_VL53L0X();
 #define LEFT_I2C 0x31
 #define RIGHT_I2C 0x32
 
-/// @brief
-/// @param forward
-/// @param left
-/// @param right
+/// @brief configures pins and I2C interface for the ToF sensors, begins continuous ranging
+/// @param forward pin number of forward sensor shutdowm
+/// @param left pin number of left sensor shutdowm
+/// @param right pin number of right sensor shutdowm
 void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right)
 {
   pinMode(forward, OUTPUT);
@@ -74,8 +74,8 @@ void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right)
   lox_right.startRangeContinuous();
 }
 
-/// @brief
-/// @param x
+/// @brief returns sensor measurements in a struct
+/// @param x struct
 void getMeasurements(distances_t *x)
 {
   // get distances

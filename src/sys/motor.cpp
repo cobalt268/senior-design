@@ -1,5 +1,6 @@
 #include "motor.h"
 #include "../hal/motor_hal.h"
+#include "../hal/encoder_hal.h"
 
 static float left_duty = 0.0;
 static float right_duty = 0.0;
@@ -35,3 +36,11 @@ void right_stop(void){
 void left_stop(void){
     left_motor_stop_hal();
 };
+
+uint64_t get_left_encoder_count(void){
+    return left_encoder_counts_hal();
+}
+
+uint64_t get_right_encoder_count(void){
+    return right_encoder_counts_hal();
+}

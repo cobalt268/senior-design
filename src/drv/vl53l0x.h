@@ -1,3 +1,6 @@
+#ifndef VL53LOX_H
+#define VL53LOX_H
+
 #include <stdint.h>
 
 typedef struct distances
@@ -10,3 +13,5 @@ typedef struct distances
 void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right);
 
 void getMeasurements(distances_t *);
+
+#endif

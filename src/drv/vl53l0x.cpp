@@ -10,6 +10,10 @@ Adafruit_VL53L0X lox_right = Adafruit_VL53L0X();
 #define LEFT_I2C 0x31
 #define RIGHT_I2C 0x32
 
+/// @brief
+/// @param forward
+/// @param left
+/// @param right
 void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right)
 {
   pinMode(forward, OUTPUT);
@@ -70,6 +74,8 @@ void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right)
   lox_right.startRangeContinuous();
 }
 
+/// @brief
+/// @param x
 void getMeasurements(distances_t *x)
 {
   // get distances

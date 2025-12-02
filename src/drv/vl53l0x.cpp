@@ -79,6 +79,10 @@ void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right)
 void getMeasurements(distances_t *x)
 {
   // get distances
+  if (lox_forward.isRangeComplete())
+  {
+    x->forward = lox_forward.readRange();
+  }
   if (lox_left.isRangeComplete())
   {
     x->left = lox_left.readRange();
@@ -87,8 +91,5 @@ void getMeasurements(distances_t *x)
   {
     x->right = lox_right.readRange();
   }
-  if (lox_forward.isRangeComplete())
-  {
-    x->forward = lox_forward.readRange();
-  }
+  
 }

@@ -29,20 +29,20 @@ static void el2_int_handler(void){
 };
 
 /// @brief 
-/// @param er1 
-/// @param er2 
-/// @param el1 
-/// @param el2 
+/// @param er1 encoder right channel A input pin
+/// @param er2 encoder right channel B input pin
+/// @param el1 encoder left channel A input pin
+/// @param el2 encoder left channel B input pin
 void encoder_setup_drv(uint8_t er1, uint8_t er2, uint8_t el1, uint8_t el2){
     pinMode(er1, INPUT);
     pinMode(er2, INPUT);
     pinMode(el1, INPUT);
     pinMode(el2, INPUT);
 
-    attachInterrupt(digitalPinToInterrupt(er1), er1_int_handler, RISING);
-    attachInterrupt(digitalPinToInterrupt(er2), er2_int_handler, RISING);
-    attachInterrupt(digitalPinToInterrupt(el1), el1_int_handler, RISING);
-    attachInterrupt(digitalPinToInterrupt(el2), el2_int_handler, RISING);
+    attachInterrupt(digitalPinToInterrupt(er1), er1_int_handler, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(er2), er2_int_handler, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(el1), el1_int_handler, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(el2), el2_int_handler, CHANGE);
 };
 
 /// @brief 

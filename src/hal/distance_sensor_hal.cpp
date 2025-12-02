@@ -11,6 +11,7 @@ void setup_dist_sensor(void)
 }
 
 /// @brief 
+/// @deprecated remove once interrupt-based polling is completed
 /// @param  
 void refresh(void)
 {

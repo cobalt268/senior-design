@@ -25,10 +25,11 @@ void setup()
 
 void loop()
 {
-  distance_refresh();
   uint16_t right_dist = rightDistance();
   uint16_t left_dist = leftDistance();
   uint16_t forward_dist = forwardDistance();
+  uint32_t right_encoder_counts = get_right_encoder_count();
+  uint32_t left_encoder_counts = get_left_encoder_count();
 
   // clear previous output
   Serial.write(27);
@@ -36,6 +37,6 @@ void loop()
   Serial.write(27);
   Serial.print("[H");
 
-  Serial.printf("Distance (mm):\n\rRIGHT:\t\t%d\n\rFORWARD:\t%d\n\rLEFT:\t\t%d", right_dist, forward_dist, left_dist);
+  Serial.printf("Distance (mm):\n\rRIGHT:\t\t%d\n\rFORWARD:\t%d\n\rLEFT:\t\t%d\n\r-------------------------------------------------------\n\rENCODER DATA (counts):\n\rRIGHT:\t\t%d\n\rLEFT:\t\t%d\n\r", right_dist, forward_dist, left_dist, right_encoder_counts, left_encoder_counts);
   delay(50);
 }

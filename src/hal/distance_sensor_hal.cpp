@@ -5,7 +5,7 @@ static distances_t distances;
 
 void setup_dist_sensor(void)
 {
-    setupVL53LOX();
+    setupVL53LOX(SENSOR_FORWARD, SENSOR_LEFT, SENSOR_RIGHT);
 }
 
 void refresh(void)

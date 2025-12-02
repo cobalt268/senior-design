@@ -7,6 +7,6 @@ typedef struct distances
     uint16_t forward;
 } distances_t;
 
-void setupVL53LOX(void);
+void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right);
 
 void getMeasurements(distances_t *);

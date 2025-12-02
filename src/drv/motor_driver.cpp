@@ -2,16 +2,11 @@
 #include <Arduino.h>
 #include "driver/mcpwm.h"
 
-#define PWM_R_1 21
-#define PWM_R_2 47
-#define PWM_L_1 48
-#define PWM_L_2 45
-
-void motor_setup(void){
-    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, PWM_R_1);
-    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0B, PWM_R_2);
-    mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM1A, PWM_L_1);
-    mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM1B, PWM_L_2);
+void motor_setup(uint8_t r1, uint8_t r2, uint8_t l1, uint8_t l2){
+    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, r1);
+    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0B, r2);
+    mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM1A, l1);
+    mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM1B, l2);
 
     mcpwm_config_t mcpwm_r_config = {
         .frequency = 1000,

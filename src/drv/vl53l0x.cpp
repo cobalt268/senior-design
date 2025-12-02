@@ -2,10 +2,6 @@
 #include <Arduino.h>
 #include "Adafruit_VL53L0X.h"
 
-#define SENSOR_FORWARD 6
-#define SENSOR_LEFT 4
-#define SENSOR_RIGHT 7
-
 Adafruit_VL53L0X lox_forward = Adafruit_VL53L0X();
 Adafruit_VL53L0X lox_left = Adafruit_VL53L0X();
 Adafruit_VL53L0X lox_right = Adafruit_VL53L0X();
@@ -14,27 +10,27 @@ Adafruit_VL53L0X lox_right = Adafruit_VL53L0X();
 #define LEFT_I2C 0x31
 #define RIGHT_I2C 0x32
 
-void setupVL53LOX(void)
+void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right)
 {
-  pinMode(SENSOR_FORWARD, OUTPUT);
-  pinMode(SENSOR_LEFT, OUTPUT);
-  pinMode(SENSOR_RIGHT, OUTPUT);
+  pinMode(forward, OUTPUT);
+  pinMode(left, OUTPUT);
+  pinMode(right, OUTPUT);
 
   // all reset
-  digitalWrite(SENSOR_FORWARD, LOW);
-  digitalWrite(SENSOR_LEFT, LOW);
-  digitalWrite(SENSOR_RIGHT, LOW);
+  digitalWrite(forward, LOW);
+  digitalWrite(left, LOW);
+  digitalWrite(right, LOW);
   delay(10);
   // all unreset
-  digitalWrite(SENSOR_FORWARD, HIGH);
-  digitalWrite(SENSOR_LEFT, HIGH);
-  digitalWrite(SENSOR_RIGHT, HIGH);
+  digitalWrite(forward, HIGH);
+  digitalWrite(left, HIGH);
+  digitalWrite(right, HIGH);
   delay(10);
 
   // activating forward, resetting all else
-  digitalWrite(SENSOR_FORWARD, HIGH);
-  digitalWrite(SENSOR_LEFT, LOW);
-  digitalWrite(SENSOR_RIGHT, LOW);
+  digitalWrite(forward, HIGH);
+  digitalWrite(left, LOW);
+  digitalWrite(right, LOW);
 
   // initing forward
   if (!lox_forward.begin(FORWARD_I2C))
@@ -46,7 +42,7 @@ void setupVL53LOX(void)
   delay(10);
 
   // activating right
-  digitalWrite(SENSOR_RIGHT, HIGH);
+  digitalWrite(right, HIGH);
   delay(10);
 
   // initing right
@@ -58,7 +54,7 @@ void setupVL53LOX(void)
   }
 
   // activating left
-  digitalWrite(SENSOR_LEFT, HIGH);
+  digitalWrite(left, HIGH);
   delay(10);
 
   // initing left

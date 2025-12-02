@@ -2,7 +2,7 @@
 #include "../drv/motor_driver.h"
 
 void setup_motor_hal(void){
-    motor_setup();
+    motor_setup(PWM_R_1, PWM_R_2, PWM_L_1, PWM_L_2);
 };
 
 void left_motor_forward_hal(float duty){

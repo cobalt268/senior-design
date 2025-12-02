@@ -1,8 +1,8 @@
 #include "motor.h"
 #include "../hal/motor_hal.h"
 
-static float left_duty;
-static float right_duty;
+static float left_duty = 0.0;
+static float right_duty = 0.0;
 
 void setup_motor(void){
     setup_motor_hal();

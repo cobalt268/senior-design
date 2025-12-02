@@ -13,6 +13,12 @@ void setup() {
   setup_motor();
 
   delay(100);
+
+  set_speed_right(100.0);
+  set_speed_left(100.0);
+  
+  right_set_forward();
+  left_set_forward();
 }
 
 void loop() {
@@ -20,7 +26,6 @@ void loop() {
   uint16_t right_dist = rightDistance();
   uint16_t left_dist = leftDistance();
   uint16_t forward_dist = forwardDistance();
-
 
   //clear previous output
   Serial.write(27);

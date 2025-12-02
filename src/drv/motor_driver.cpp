@@ -30,9 +30,7 @@ void motor_setup(void){
     };
 
     mcpwm_init(MCPWM_UNIT_0,MCPWM_TIMER_0,&mcpwm_r_config);
-    mcpwm_init(MCPWM_UNIT_0,MCPWM_TIMER_1,&mcpwm_l_config);
-
-    
+    mcpwm_init(MCPWM_UNIT_1,MCPWM_TIMER_1,&mcpwm_l_config);
 }
 
 void left_motor_forward(float duty){

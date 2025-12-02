@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "sys/distance.h"
+#include "sys/motor.h"
 
 void setup() {
   Serial.begin(115200);
@@ -9,6 +10,7 @@ void setup() {
   }
 
   setup_distance();
+  setup_motor();
 
   delay(100);
 }

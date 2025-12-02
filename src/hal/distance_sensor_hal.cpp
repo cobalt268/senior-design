@@ -1,7 +1,7 @@
 #include "distance_sensor_hal.h"
 #include "../drv/vl53l0x.h"
 
-distances_t distances;
+static distances_t distances;
 
 void setup_dist_sensor(void)
 {

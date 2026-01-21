@@ -5,19 +5,17 @@
 void setup()
 {
   Serial.begin(115200);
-  // wait until serial port opens for native USB devices
-  while (!Serial)
-  {
-    delay(1);
-  }
 
   setup_distance();
   setup_motor();
 
-  left_set_forward(30.0);
-  right_set_forward(30.0);
+  left_set_forward(60.0);
+  right_set_forward(100.0);
 
   vTaskDelay(100/portTICK_PERIOD_MS);
+
+  left_set_forward(30.0);
+  right_set_forward(30.0);
 }
 
 void loop()

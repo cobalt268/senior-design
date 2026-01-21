@@ -9,13 +9,18 @@ void setup()
   setup_distance();
   setup_motor();
 
-  left_set_forward(60.0);
-  right_set_forward(100.0);
+  vTaskDelay(1000/portTICK_PERIOD_MS);
 
-  vTaskDelay(100/portTICK_PERIOD_MS);
+  //briefly high initial torque
+  left_set_forward(50.0);
+  right_set_forward(50.0);
+
+  vTaskDelay(25/portTICK_PERIOD_MS);
 
   left_set_forward(30.0);
   right_set_forward(30.0);
+
+  vTaskDelay(100/portTICK_PERIOD_MS);
 }
 
 void loop()

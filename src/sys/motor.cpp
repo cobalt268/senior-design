@@ -2,6 +2,8 @@
 #include "../hal/motor_hal.h"
 #include "../hal/encoder_hal.h"
 
+#define LEFT_RIGHT_RATIO .979
+
 /// @brief configures motor pwm and encoders
 /// @param
 void setup_motor(void)
@@ -21,7 +23,7 @@ void right_set_forward(float duty)
 /// @param
 void left_set_forward(float duty)
 {
-    left_motor_forward_hal(duty);
+    left_motor_forward_hal(duty*LEFT_RIGHT_RATIO);
 };
 
 /// @brief sets right motor to go backward at set duty cycle

@@ -11,16 +11,7 @@ void setup()
 
   vTaskDelay(1000/portTICK_PERIOD_MS);
 
-  //briefly high initial torque
-  left_set_forward(50.0);
-  right_set_forward(50.0);
-
-  vTaskDelay(25/portTICK_PERIOD_MS);
-
-  left_set_forward(30.0);
-  right_set_forward(30.0);
-
-  vTaskDelay(100/portTICK_PERIOD_MS);
+  proceed_forward(600);
 }
 
 void loop()

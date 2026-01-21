@@ -17,4 +17,6 @@ void left_stop(float duty);
 uint32_t get_left_encoder_count(void);
 uint32_t get_right_encoder_count(void);
 
+void proceed_forward(uint16_t mm);
+
 #endif

@@ -9,7 +9,7 @@ void setup()
   setup_distance();
   setup_motor();
 
-  vTaskDelay(1000/portTICK_PERIOD_MS);
+  vTaskDelay(1000 / portTICK_PERIOD_MS);
 
   proceed_forward(600);
 }
@@ -30,5 +30,5 @@ void loop()
   uint32_t left_encoder_counts = get_left_encoder_count();
 
   Serial.printf("Distance (mm):\n\rRIGHT:\t\t%d\n\rFORWARD:\t%d\n\rLEFT:\t\t%d\n\r-------------------------------------------------------\n\rENCODER DATA (counts):\n\rRIGHT:\t\t%d\n\rLEFT:\t\t%d\n\r", right_dist, forward_dist, left_dist, right_encoder_counts, left_encoder_counts);
-  vTaskDelay(50/portTICK_PERIOD_MS);
+  vTaskDelay(50 / portTICK_PERIOD_MS);
 }

@@ -3,8 +3,8 @@
 #include "../hal/motor_hal.h"
 #include "../hal/encoder_hal.h"
 
-#define LEFT_RIGHT_RATIO 1      //todo fix this
-#define COUNTS_PER_MM 5         //todo fix this
+#define LEFT_RIGHT_RATIO 1 // todo fix this
+#define COUNTS_PER_MM 5    // todo fix this
 
 /// @brief configures motor pwm and encoders
 /// @param
@@ -83,7 +83,8 @@ void proceed_forward(uint16_t mm)
     right_set_forward(20.0);
 
     uint8_t start_count = get_right_encoder_count();
-    while ((get_right_encoder_count()-start_count)<mm*COUNTS_PER_MM);
+    while ((get_right_encoder_count() - start_count) < mm * COUNTS_PER_MM)
+        ;
 
     left_stop();
     right_stop();

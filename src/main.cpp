@@ -14,12 +14,12 @@ void setup()
 
 void loop()
 {
-  proceed_forward(200);
-  vTaskDelay(1000 / portTICK_PERIOD_MS);
+  proceed_forward(720);
+  vTaskDelay(3000 / portTICK_PERIOD_MS);
   rotate_right();
-  vTaskDelay(500 / portTICK_PERIOD_MS);
+  vTaskDelay(200 / portTICK_PERIOD_MS);
   rotate_right();
-  vTaskDelay(1000 / portTICK_PERIOD_MS);
+  vTaskDelay(3000 / portTICK_PERIOD_MS);
 
   // // clear previous output
   // Serial.write(27);

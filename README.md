@@ -1,3 +1,4 @@
 # to-do
-* make distance sensing interrupt-based
-* motor control and encoding
+* Get turning 90 degrees more precise
+* Fine tune distance travelled
+* Maze-routing algorithm

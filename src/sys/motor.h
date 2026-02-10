@@ -21,4 +21,6 @@ void proceed_forward(uint16_t mm);
 void rotate_right(void);
 void rotate_left(void);
 
+void align(void);
+
 #endif

@@ -2,16 +2,18 @@
 #include "motor.h"
 #include "../hal/motor_hal.h"
 #include "../hal/encoder_hal.h"
+#include "distance.h"
 
 //how many encoder counts the right motor logs while traveling 1 millimeter
-#define RIGHT_COUNTS_PER_MM 2.8    // todo fix this
+#define RIGHT_COUNTS_PER_MM 2.5    // todo fix this
 //how many motor counts per 90 degree turn
 #define COUNTS_PER_90 395
 
 #define RUNNING_SPEED 20.0
 #define STARTING_SPEED 100.0
+#define TURNING_SPEED 18.0
 
-float motor_ratio = 1.0;
+float motor_ratio = .92;
 
 /// @brief configures motor pwm and encoders
 /// @param
@@ -126,8 +128,8 @@ void rotate_right(void){
     vTaskDelay(20 / portTICK_PERIOD_MS);
 
     // running speed
-    left_set_forward(RUNNING_SPEED);
-    right_set_backward(RUNNING_SPEED);
+    left_set_forward(TURNING_SPEED);
+    right_set_backward(TURNING_SPEED);
 
     //proceed until distance reached
     uint32_t start_count = get_right_encoder_count();
@@ -148,8 +150,8 @@ void rotate_left(void){
     vTaskDelay(20 / portTICK_PERIOD_MS);
 
     // running speed
-    right_set_forward(RUNNING_SPEED);
-    left_set_backward(RUNNING_SPEED);
+    right_set_forward(TURNING_SPEED);
+    left_set_backward(TURNING_SPEED);
 
     //proceed until distance reached
     uint32_t start_count = get_right_encoder_count();
@@ -157,6 +159,31 @@ void rotate_left(void){
         ;
 
     //brake after traveling
+    right_stop();
+    left_stop();
+}
+
+void align(void){
+    distance_refresh();
+    if (forwardDistance()-forwardLeftDistance()>0){
+        right_set_forward(STARTING_SPEED);
+        left_set_backward(STARTING_SPEED);
+        vTaskDelay(20 / portTICK_PERIOD_MS);
+
+        right_set_forward(TURNING_SPEED);
+        left_set_backward(TURNING_SPEED);
+    }
+    else {
+        left_set_forward(STARTING_SPEED);
+        right_set_backward(STARTING_SPEED);
+        vTaskDelay(20 / portTICK_PERIOD_MS);
+
+        left_set_forward(TURNING_SPEED);
+        right_set_backward(TURNING_SPEED);
+    }
+    while (abs(forwardDistance()-forwardLeftDistance())>(3)){
+        distance_refresh();
+    };
     right_stop();
     left_stop();
 }

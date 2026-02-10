@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "motor.h"
-#include "../hal/motor_hal.h"
-#include "../hal/encoder_hal.h"
+#include "../drv/motor_driver.h"
+#include "../drv/encoder_driver.h"
 #include "distance.h"
 
 //how many encoder counts the right motor logs while traveling 1 millimeter
@@ -19,49 +19,49 @@ float motor_ratio = .92;
 /// @param
 void setup_motor(void)
 {
-    setup_motor_hal();
-    encoder_setup_hal();
+    motor_setup(PWM_R_1, PWM_R_2, PWM_L_1, PWM_L_2);
+    encoder_setup_drv(ENCODER_R_1, ENCODER_R_2, ENCODER_L_1, ENCODER_L_2);
 };
 
 /// @brief sets right motor to go forward at set duty cycle
 /// @param
 void right_set_forward(float duty)
 {
-    right_motor_forward_hal(duty * motor_ratio);
+    right_motor_forward(duty * motor_ratio);
 };
 
 /// @brief sets left motor to go forward at set duty cycle
 /// @param
 void left_set_forward(float duty)
 {
-    left_motor_forward_hal(duty);
+    left_motor_forward(duty);
 };
 
 /// @brief sets right motor to go backward at set duty cycle
 /// @param
 void right_set_backward(float duty)
 {
-    right_motor_backward_hal(duty);
+    right_motor_reverse(duty);
 };
 /// @brief sets left motor to go backward at set duty cycle
 /// @param
 void left_set_backward(float duty)
 {
-    left_motor_backward_hal(duty);
+    left_motor_reverse(duty);
 };
 
 /// @brief stops right motor movement
 /// @param
 void right_stop(void)
 {
-    right_motor_stop_hal();
+    right_motor_stop();
 };
 
 /// @brief stops right motor movement
 /// @param
 void left_stop(void)
 {
-    left_motor_stop_hal();
+    left_motor_stop();
 };
 
 /// @brief
@@ -69,7 +69,7 @@ void left_stop(void)
 /// @return encoder count for left motor
 uint32_t get_left_encoder_count(void)
 {
-    return left_encoder_counts_hal();
+    return counts_left();
 }
 
 /// @brief
@@ -77,7 +77,7 @@ uint32_t get_left_encoder_count(void)
 /// @return encoder count for right motor
 uint32_t get_right_encoder_count(void)
 {
-    return right_encoder_counts_hal();
+    return counts_right();
 }
 
 /// @brief 

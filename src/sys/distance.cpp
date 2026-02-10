@@ -1,10 +1,13 @@
-#include "../hal/distance_sensor_hal.h"
+#include "distance.h"
+#include "../drv/vl53l0x.h"
+
+static distances_t distances;
 
 /// @brief configures distance sensors and relevant pins, boots sensors
 /// @param
 void setup_distance(void)
 {
-    setup_dist_sensor();
+    setupVL53LOX(SENSOR_FORWARD, SENSOR_LEFT, SENSOR_RIGHT, SENSOR_FORWARD_LEFT);
 }
 
 /// @brief
@@ -12,7 +15,7 @@ void setup_distance(void)
 /// @return right sensor measurement in mm
 uint16_t rightDistance(void)
 {
-    return getRight();
+    return distances.right;
 }
 
 /// @brief
@@ -20,7 +23,7 @@ uint16_t rightDistance(void)
 /// @return left sensor measurement in mm
 uint16_t leftDistance(void)
 {
-    return getLeft();
+    return distances.left;
 }
 
 /// @brief
@@ -28,13 +31,13 @@ uint16_t leftDistance(void)
 /// @return forward sensor measurement in mm
 uint16_t forwardDistance(void)
 {
-    return getForward();
+    return distances.forward;
 }
 
 void distance_refresh(void){
-    refresh();
+    getMeasurements(&distances);
 }
 
 uint16_t forwardLeftDistance(void){
-    return getForwardLeft();
+    return distances.forward_left;
 }

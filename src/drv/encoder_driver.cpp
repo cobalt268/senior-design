@@ -48,13 +48,13 @@ void encoder_setup_drv(uint8_t er1, uint8_t er2, uint8_t el1, uint8_t el2){
 /// @brief 
 /// @param  
 /// @return 
-uint32_t counts_left_drv(void) {
+uint32_t counts_left(void) {
     return el_count;
 }
 
 /// @brief 
 /// @param  
 /// @return 
-uint32_t counts_right_drv(void){
+uint32_t counts_right(void){
     return er_count;
 }

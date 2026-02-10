@@ -12,8 +12,6 @@ void setup()
   setup_motor();
 
   vTaskDelay(1000 / portTICK_PERIOD_MS);
-
-  align();
 }
 
 void loop()

@@ -164,26 +164,24 @@ void rotate_left(void){
 }
 
 void align(void){
+
     distance_refresh();
-    if (forwardDistance()-forwardLeftDistance()>0){
-        right_set_forward(STARTING_SPEED);
-        left_set_backward(STARTING_SPEED);
-        vTaskDelay(20 / portTICK_PERIOD_MS);
+    while (abs(forwardDistance()-forwardLeftDistance())>(1)){
+    
+        if (forwardDistance()-forwardLeftDistance()>0){
+            right_set_forward(100.0);
+            left_set_backward(100.0);
+        }
+        else {
+            left_set_forward(100.0);
+            right_set_backward(100.0);
+        }
 
-        right_set_forward(TURNING_SPEED);
-        left_set_backward(TURNING_SPEED);
-    }
-    else {
-        left_set_forward(STARTING_SPEED);
-        right_set_backward(STARTING_SPEED);
-        vTaskDelay(20 / portTICK_PERIOD_MS);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+        right_stop();
+        left_stop();
 
-        left_set_forward(TURNING_SPEED);
-        right_set_backward(TURNING_SPEED);
-    }
-    while (abs(forwardDistance()-forwardLeftDistance())>(3)){
         distance_refresh();
     };
-    right_stop();
-    left_stop();
+
 }

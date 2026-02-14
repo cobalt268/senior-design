@@ -34,14 +34,16 @@ uint16_t forwardDistance(void)
     return distances.forward;
 }
 
-//refreshes all sensor measurements
-//call this every time you want to get new measurements
-//call once per cycle, not once per sensor per cycle (itll get tripped up if called too often)
-void distance_refresh(void){
+// refreshes all sensor measurements
+// call this every time you want to get new measurements
+// call once per cycle, not once per sensor per cycle (itll get tripped up if called too often)
+void distance_refresh(void)
+{
     getMeasurements(&distances);
 }
 
-//left forward sensor distance in mm
-uint16_t forwardLeftDistance(void){
+// left forward sensor distance in mm
+uint16_t forwardLeftDistance(void)
+{
     return distances.forward_left;
 }

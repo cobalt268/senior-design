@@ -21,26 +21,26 @@ void setupVL53LOX(uint8_t forward, uint8_t left, uint8_t right, uint8_t forward_
   pinMode(forward, OUTPUT);
   pinMode(left, OUTPUT);
   pinMode(right, OUTPUT);
-  pinMode(forward_left,OUTPUT);
+  pinMode(forward_left, OUTPUT);
 
   // all reset
   digitalWrite(forward, LOW);
   digitalWrite(left, LOW);
   digitalWrite(right, LOW);
-  digitalWrite(forward_left,LOW);
+  digitalWrite(forward_left, LOW);
   delay(10);
   // all unreset
   digitalWrite(forward, HIGH);
   digitalWrite(left, HIGH);
   digitalWrite(right, HIGH);
-  digitalWrite(forward_left,HIGH);
+  digitalWrite(forward_left, HIGH);
   delay(10);
 
   // activating forward, resetting all else
   digitalWrite(forward, HIGH);
   digitalWrite(left, LOW);
   digitalWrite(right, LOW);
-  digitalWrite(forward_left,LOW);
+  digitalWrite(forward_left, LOW);
 
   // initing forward
   if (!lox_forward.begin(FORWARD_I2C))
@@ -110,8 +110,8 @@ void getMeasurements(distances_t *x)
   {
     x->right = lox_right.readRange();
   }
-  if (lox_forward_left.isRangeComplete()){
+  if (lox_forward_left.isRangeComplete())
+  {
     x->forward_left = lox_forward_left.readRange();
   }
-  
 }

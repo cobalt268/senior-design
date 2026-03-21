@@ -16,12 +16,12 @@ void setup()
 
 void loop()
 {
-  // proceed_forward(720);
-  // vTaskDelay(3000 / portTICK_PERIOD_MS);
-  // rotate_right();
-  // vTaskDelay(200 / portTICK_PERIOD_MS);
-  // rotate_right();
-  // vTaskDelay(3000 / portTICK_PERIOD_MS);
+  proceed_forward(180);
+  vTaskDelay(3000 / portTICK_PERIOD_MS);
+  rotate_right();
+  vTaskDelay(200 / portTICK_PERIOD_MS);
+  rotate_right();
+  vTaskDelay(3000 / portTICK_PERIOD_MS);
 
   // clear previous output
   

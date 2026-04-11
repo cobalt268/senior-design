@@ -9,6 +9,8 @@ void setup()
   // standard arduino serial init
   Serial.begin(115200);
 
+  pinMode(42, OUTPUT);
+
   // module setup methods
   setup_distance();
   setup_motor();
@@ -48,5 +50,7 @@ void loop()
   // output measurements to serial
   Serial.printf("Distance (mm):\n\rRIGHT:\t\t\t%d\n\rFORWARD (right):\t%d\n\rFORWARD (left):\t\t%d\n\rLEFT:\t\t\t%d\n\r-------------------------------------------------------\n\rENCODER DATA (counts):\n\rRIGHT:\t\t%d\n\rLEFT:\t\t%d\n\r", right_dist, forward_dist, forward_left_dist, left_dist, right_encoder_counts, left_encoder_counts);
   // delay
+
+
   vTaskDelay(50 / portTICK_PERIOD_MS);
 }

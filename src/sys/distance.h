@@ -5,8 +5,8 @@
 
 #define LED_RIGHT 16
 #define LED_FORWARD_RIGHT 17
-#define LED_FORWARD_LEFT 9
-#define LED_LEFT 10
+#define LED_FORWARD_LEFT 3
+#define LED_LEFT 9
 
 #define SENSOR_FORWARD_RIGHT 6
 #define SENSOR_LEFT 4

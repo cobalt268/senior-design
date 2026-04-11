@@ -34,27 +34,22 @@ void loop()
   Serial.write(27);
   Serial.print("[H");
 
-  // // store current measurement from each sensor
-  // uint16_t right_dist = rightDistance();
-  // vTaskDelay(10/portTICK_PERIOD_MS);
-  // uint16_t left_dist = leftDistance();
-  // //vTaskDelay(10/portTICK_PERIOD_MS);
-  // uint16_t forward_dist = 0;//forwardDistance();
-  // vTaskDelay(10/portTICK_PERIOD_MS);
-  // uint16_t forward_left_dist = forwardLeftDistance();
+  // store current measurement from each sensor
+  uint16_t right_dist = rightDistance();
+  vTaskDelay(10/portTICK_PERIOD_MS);
+  uint16_t left_dist = leftDistance();
+  //vTaskDelay(10/portTICK_PERIOD_MS);
+  uint16_t forward_dist = 0;//forwardDistance();
+  vTaskDelay(10/portTICK_PERIOD_MS);
+  uint16_t forward_left_dist = forwardLeftDistance();
 
-  // // get current encoder counts, refreshes automatically unlike distance sensors
-  // uint32_t right_encoder_counts = get_right_encoder_count();
-  // uint32_t left_encoder_counts = get_left_encoder_count();
+  // get current encoder counts, refreshes automatically unlike distance sensors
+  uint32_t right_encoder_counts = get_right_encoder_count();
+  uint32_t left_encoder_counts = get_left_encoder_count();
 
-  // // output measurements to serial
-  // Serial.printf("Distance (mm):\n\rRIGHT:\t\t\t%d\n\rFORWARD (right):\t%d\n\rFORWARD (left):\t\t%d\n\rLEFT:\t\t\t%d\n\r-------------------------------------------------------\n\rENCODER DATA (counts):\n\rRIGHT:\t\t%d\n\rLEFT:\t\t%d\n\r", right_dist, forward_dist, forward_left_dist, left_dist, right_encoder_counts, left_encoder_counts);
+  // output measurements to serial
+  Serial.printf("Distance (mm):\n\rRIGHT:\t\t\t%d\n\rFORWARD (right):\t%d\n\rFORWARD (left):\t\t%d\n\rLEFT:\t\t\t%d\n\r-------------------------------------------------------\n\rENCODER DATA (counts):\n\rRIGHT:\t\t%d\n\rLEFT:\t\t%d\n\r", right_dist, forward_dist, forward_left_dist, left_dist, right_encoder_counts, left_encoder_counts);
   // delay
-
-  digitalWrite(LED_FORWARD_LEFT, HIGH);
-  vTaskDelay(500 / portTICK_PERIOD_MS);
-  digitalWrite(LED_FORWARD_LEFT, HIGH);
-  vTaskDelay(500 / portTICK_PERIOD_MS);
 
 
   vTaskDelay(50 / portTICK_PERIOD_MS);

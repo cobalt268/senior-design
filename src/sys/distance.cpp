@@ -15,8 +15,8 @@ void setup_distance(void)
 uint16_t rightDistance(void)
 {
     uint16_t volt = right_voltage();
-    uint16_t millis = pow(volt/4751.13808,(1.0/-.606735));
-    return volt;
+    uint16_t millis = pow(volt/10417.0478,(1.0/-0.809747));
+    return millis;
 }
 
 /// @brief
@@ -25,8 +25,8 @@ uint16_t rightDistance(void)
 uint16_t leftDistance(void)
 {
     uint16_t volt = left_voltage();
-    uint16_t millis = pow(volt/4375.04273,(1.0/-.594013));
-    return volt;
+    uint16_t millis = pow(volt/12670.0822,(1.0/-0.80072));
+    return millis;
 }
 
 /// @brief
@@ -35,14 +35,14 @@ uint16_t leftDistance(void)
 uint16_t forwardDistance(void)
 {
     uint16_t volt = front_right_voltage();
-    uint16_t millis = pow(volt/3179.19145,(1.0/-.315761));
-    return volt;
+    uint16_t millis = pow(volt/427574.3144,(1.0/-1.16168));
+    return millis;
 }
 
 // left forward sensor distance in mm
 uint16_t forwardLeftDistance(void)
 {
     uint16_t volt = front_left_voltage();
-    uint16_t millis = pow(volt/2287.66907,(1.0/-.505933));
-    return volt;
+    uint16_t millis = pow(volt/427574.3144,(1.0/-1.16168));
+    return millis;
 }

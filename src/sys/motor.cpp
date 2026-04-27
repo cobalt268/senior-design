@@ -14,7 +14,7 @@
 #define TURNING_SPEED 40.0
 
 #define AVERSION_DISTANCE 35   // side wall distance in mm that triggers a micro-correction
-#define AVERSION_TURN_DEG 8    // degrees to pivot away from a side wall
+#define AVERSION_TURN_DEG 3    // degrees to pivot away from a side wall
 #define AVERSION_MIN_MM   40   // minimum travel before aversion is allowed to trigger
 
 float motor_ratio = 1.00;
@@ -155,9 +155,9 @@ void proceed_forward(uint16_t mm)
 
         bool past_threshold = (get_right_encoder_count() - start_count) > AVERSION_MIN_MM * RIGHT_COUNTS_PER_MM;
         if (past_threshold && rightDistance() < AVERSION_DISTANCE)
-            avert_from_right();
-        else if (past_threshold && leftDistance() < AVERSION_DISTANCE)
             avert_from_left();
+        else if (past_threshold && leftDistance() < AVERSION_DISTANCE)
+            avert_from_right();
         else
         {
             // apply motor_ratio to right motor to correct straight-line drift

@@ -1,8 +1,8 @@
 #include "ir_driver.h"
 #include <Arduino.h>
 
-uint8_t forward_right_led, forward_left_led, right_led, left_led = 0;
-uint8_t forward_right_photo, forward_left_photo, right_photo, left_photo = 0;
+uint8_t forward_right_led = 0, forward_left_led = 0, right_led = 0, left_led = 0;
+uint8_t forward_right_photo = 0, forward_left_photo = 0, right_photo = 0, left_photo = 0;
 
 void ir_sensor_setup(
     uint8_t init_left_led,
